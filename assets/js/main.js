@@ -314,12 +314,45 @@ $(".dokumentasi-slider").slick({
   ],
 });
 
-$(".fasilitas").slick({
+$(".flash-slider-1").slick({
+  dots: true,
+  arrows: true,
+  infinite: true,
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        centreMode: true,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        centreMode: true,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+});
+
+$(".paket-program-slider").slick({
   dots: true,
   infinite: false,
   speed: 300,
-  slidesToShow: 4,
-  slidesToScroll: 4,
+  slidesToShow: 3,
+  slidesToScroll: 1,
   responsive: [
     {
       breakpoint: 1024,
@@ -376,6 +409,8 @@ $(".benefitsc-slider").slick({
     {
       breakpoint: 480,
       settings: {
+        arrows: false,
+        centreMode: true,
         slidesToShow: 1,
         slidesToScroll: 1,
       },
@@ -421,6 +456,34 @@ $(".partnership-slider").slick({
     // instead of a settings object
   ],
 });
+
+// Set the date we're counting down to
+var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function () {
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML =
+    hours + "h " + minutes + "m " + seconds + "s ";
+
+  // If the count down is over, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
 
 $(".media-slider").slick({
   dots: false,
